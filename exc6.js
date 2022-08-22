@@ -3,5 +3,5 @@ function calcular() {
     let vendas = parseFloat(document.getElementById("vendas").value)
     let novoSalario = parseFloat(salario) + (vendas*0.04)
     document.getElementById("novoSalario").innerHTML = 
-    `O novo salario com bonus será R$ ${novoSalario.toFixed(2)}`
+    `O novo salario com bonus de R$ ${novoSalario - salario} será de R$ ${novoSalario.toFixed(2)}`
 }
