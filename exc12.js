@@ -4,5 +4,5 @@ function calcular() {
     let qtdSalarios = salarioFunc / salarioMin
 
     document.getElementById("qtdSalarios").innerHTML = 
-    `A area do losango será ${qtdSalarios}`
+    `O funcionario recebe o salario equivalente a ${qtdSalarios.toFixed(2)} salarios minimos!`
 }
