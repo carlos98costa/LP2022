@@ -1,6 +1,9 @@
 function calcular() {
-    let angulo = parseFloat(document.getElementById("angulo").value)
-    let distancia = parseFloat(document.getElementById("distancia").value)
-    let hipotenusa = base / Math.cos(anguloBase)
-    let altura = Math.pow
+    let anguloBase = parseFloat(document.getElementById("anguloBase").value)
+    let catetoAdj = parseFloat(document.getElementById("catetoAdj").value)
+
+
+    let hipotenusa = catetoAdj / Math.cos(anguloBase)
+    document.getElementById("resultado").innerHTML =  
+    `O resultado será ${hipotenusa.toFixed(2)} `
 }
