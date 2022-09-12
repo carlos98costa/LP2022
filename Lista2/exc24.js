@@ -26,4 +26,20 @@ function calcular() {
     }else {
         imposto = preco * 0.08
     }
+    
+    novoPreco = preco + valorAumento - imposto
+
+    if (novoPreco <= 50) {
+        classificacao = "Barato"
+    }else if (novoPreco > 50 && novoPreco < 120) {
+        classificacao = "Normal"
+    }else {
+        classificacao = "Caro"
+    }
+
+    document.getElementById("resultado").innerHTML = 
+    `O valor do aumento será R$ ${valorAumento.toFixed(2)} <br>
+    O valor do imposto será R$ ${imposto.toFixed(2)} <br>
+    O novo preço será R$ ${novoPreco.toFixed(2)} <br>
+    Esse produto é classificado como ${classificacao}`
 }
