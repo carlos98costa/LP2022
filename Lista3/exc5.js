@@ -1,4 +1,4 @@
-function calcular(){
+function exc5(){
     // tabuada do 5
     // com estrutura de repetição - while
     let numero = 1

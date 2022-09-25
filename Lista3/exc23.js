@@ -17,14 +17,14 @@ function exc23() {
                     alert(`Salario informado não pode ser negativo`)
                     break
                 }
-                alert(`Novo salario ${novo.toFixed}`)
+                alert(`Novo salario ${novo.toFixed(2)}`)
                 break
 
             case 2:
                 salario = Number(prompt(`Informe o salario`))
                 ferias = salario * 1.33
 
-                alert(`Ferias ${ferias}`)
+                alert(`Ferias ${ferias.toFixed(2)}`)
                 break
             case 3:
                 salario = Number(prompt(`Informe o salario`))

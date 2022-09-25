@@ -18,7 +18,7 @@ function exc20() {
                     alert(`Notas não podem ser negativas`)
                     break
                 }
-                alert(`Media aritmetica ${media}`)
+                alert(`Media aritmetica ${media.toFixed(2)}`)
                 break
 
             case 2:
@@ -33,7 +33,7 @@ function exc20() {
                 if (nota1, nota2, nota3 >= 0 && (peso1, peso2, peso3) >= 1) {
                     mediaPonderada = (nota1 * peso1 + nota2 * peso2 + nota3 * peso3) / (peso1 + peso2 + peso3)
                 }
-                alert(`Media ponderada é  ${mediaPonderada}`)
+                alert(`Media ponderada é  ${mediaPonderada.toFixed(2)}`)
                 break
             case 3:
                 alert('Obrigado por utilizar nosso sistema')
@@ -43,5 +43,5 @@ function exc20() {
                 break
         }
 
-    } while (opcao != 4);
+    } while (opcao != 3);
 }

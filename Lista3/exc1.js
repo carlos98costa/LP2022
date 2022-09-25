@@ -1,4 +1,4 @@
-function calcular() {
+function exc1() {
     let a
     let b
     let c
