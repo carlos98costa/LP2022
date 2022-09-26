@@ -1,29 +1,26 @@
 function exc12(){
-    let numero, primo, primo2
+    let numero, primo2
     let x = 1
-    let primoCount = 0
-    let qtd
+    var primoCount = 0
+    
     do {
         numero = Number(prompt(`Informe um numero ${x}:`))
-        if (numero%1 === 0) {
+        if (numero%1 == 0) {
             x++
-            for (primo = 0; primo<=numero; primo++) {
-                qtd = 0
-                for(primo2=1; primo2<=primo; primo2++){
-
+            let qtd = 0
+            for (let i = 1; i<=numero; i++) {
+                //console.log(primo)
+                if (numero%i == 0) {
+                    qtd++
+                    console.log(qtd)
                 }
-                if(primo%primo2==0) {
-                    qtd=qtd+1
-                }
-                if(qtd<= 2){
-                    if(primo>=2){
-                        primoCount++
-                    }
-                }
+            }
+            if (qtd == 2) {
+                primoCount++
             }
         }else {
             alert(`Numero invalido!`)
         }
-    } while (x < 2);
+    } while (x < 11);
     console.log(`No total ${primoCount} numeros primos foram digitados!`)
 }
