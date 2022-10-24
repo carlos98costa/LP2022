@@ -6,6 +6,7 @@ function prova2() {
     let precoInicial = 0
     let precoMedio = 0
     let precoFinal = 0
+    let erro = false
     
     if(metragem >= 0 && metragem <= 80 && garagens == 1) {
         precoInicial = 300000
@@ -25,6 +26,11 @@ function prova2() {
         precoInicial = 520000
     }else if(metragem >= 0 && metragem > 120 && garagens == 3) {
         precoInicial = 540000
+    }else{
+        erro = true
+    }
+    if (erro) {
+        console.log(`Problema na entrade de dados`)
     }
     if(andar == 1) {
         precoMedio = precoInicial + 10000

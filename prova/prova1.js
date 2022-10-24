@@ -42,6 +42,4 @@ function prova1() {
     console.log(`A opção 5 recebeu ${count5} voto(s)`)
     console.log(`A % de votos Tanto Faz relação ao total é ${((count5 / i)*100).toFixed(2)}%`)
     console.log(`Votos em ordem crescente ${lista.sort()}`)
-    let lista1 = [33, 32, 23, 14, 5, 18,]
-    console.log(lista1.sort())
 }
