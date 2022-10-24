@@ -1,49 +1,40 @@
 function exc6x2() {
-    var totalVendas = []
-    var total_vendas1 = 0
-    var porcentagem = []
-    var nome = []
-    var comissaoVet = []
+    let vetor = []
+    let total = 0
     var maior = 0
     var menor = 0
     var maiorVend
     var menorVend
-
-    for (let i = 0; i < 3; i++) {
-        nome.push(String(prompt(`Informe o nome do ${i + 1}° vendedor: `)))
-        totalVendas.push(Number(prompt(`Informe o total de vendas do ${i + 1}° vendedor: `)))
-        porcentagem.push(Number(prompt(`Informe a % da comissão do ${i + 1}° vendedor: `)))
-    }
-
-    for (let i = 0; i < 3; i++) {
-        comissao = (totalVendas[i] * porcentagem[i] / 100)
-        comissaoVet.push(comissao)
-
-        console.log(`${nome[i]},"R$", ${comissaoVet[i]}`)
-    }
-
-    maior = comissaoVet[1]
-    menor = comissaoVet[1]
-    maiorVend = nome[1]
-    menorVend = nome[1]
-
-    for (let i = 0; i < 3; i++) {
-        if (comissaoVet[i] > maior) {
-            maior = comissaoVet[i]
-            maiorVend = nome[i]
+    for (let i=1; i<11; i++) {
+        vendedor = {
+            nome: prompt(`Informe o nome do ${i}º vendedor:`),
+            vendas: prompt(`Informe as vendas do vendedor`),
+            comissao: prompt(`Informe a comissão do vendedor`),
+            receber: Number()
+        } 
+        vendedor.receber = vendedor.vendas * vendedor.comissao / 100
+        if (i == 1) {
+            maior = Number(vendedor.receber)
+            menor = Number(vendedor.receber)
+            maiorVend = vendedor.nome
+            menorVend = vendedor.nome
+        }else{
+            console.log(`Não era`)
         }
-        if (comissaoVet[i] < menor) {
-            menor = comissaoVet[i]
-            menorVend = nome[i]
+        let testMaior = vendedor.receber
+        if (maior < vendedor.receber) {
+            maior = vendedor.receber
+            maiorVend = vendedor.nome
         }
+        if (menor > vendedor.receber) {
+            menor = vendedor.receber
+            menorVend = vendedor.nome
+        }
+        total = total + Number(vendedor.vendas)
+        vetor.push(vendedor)
     }
-
-    console.log(`Nome maior vendedor ${maiorVend} comissão R$ ${maior}`)
-    console.log(`Nome menor vendedor ${menorVend} comissão R$ ${menor}`)
-
-
-    for (let i = 0; i < 3; i++) {
-        total_vendas1 = total_vendas1 + totalVendas[i]
-    }
-    console.log(`O total de vendas de todos os vendedores foi R$ ${total_vendas1.toFixed(2)}`)
+    console.log(vetor)
+    console.log(` Total de vendas R$ ${total}`)
+    console.log(`O maior vendedor foi ${maiorVend}, vai receber R$ ${maior}`)
+    console.log(`O maior vendedor foi ${menorVend}, vai receber R$ ${menor}`)
 }
