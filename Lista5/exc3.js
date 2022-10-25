@@ -1,4 +1,6 @@
+
 function exc3() {
+    
     let pessoas = []
     let somaIdades1 = 0
     let countM = 0
@@ -6,7 +8,8 @@ function exc3() {
     let maiorIdade = 0
     let count2 = 0
     let countT = 0
-    for (i = 1; i<6; i++) {
+
+    for (i = 1; i<51; i++) { //SE FOR TESTAR ALTERE O NUMERO DE ENTREVISTADOS AQUI<<<<<<<< i<51
         dados = {
             sexo: (prompt(`Informe o sexo da ${i}ª pessoa:\n M. Masculino \n F. Feminino `)),
             altura: Number(prompt(`Informe a altura da ${i}ª pessoa:`)),
