@@ -4,7 +4,7 @@ function exc4() {
     leitura(matriz, nomes)
     console.log(matriz)
     console.log(nomes)
-    media(matriz, nomes)
+    mediaAluno(matriz, nomes)
 
 }
 
@@ -33,9 +33,11 @@ function leitura(matriz, nomes) {
     
 }
 
-function media(matriz, nomes) {
+function mediaAluno(matriz, nomes) {
+    let mediaClasse = 0
     for(let i=0;i<15;i++){
         let media = (matriz[i][0] + matriz[i][1] + matriz[i][2] + matriz[i][3] + matriz[i][4]) / 5
+        mediaClasse += media
         if (media >=6) {
             situacao = 'Aprovado'
         }else if(media > 3 && media < 6) {
@@ -46,4 +48,5 @@ function media(matriz, nomes) {
         let aluno = `O aluno ${nomes[i]} teve a media ${media}, portanto está ${situacao} por notas!`
         console.log(aluno)
     }
+    console.log(`A media de notas da classe é ${(mediaClasse / 15).toFixed(2)}`)
 }
