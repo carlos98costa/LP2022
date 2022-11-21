@@ -1,65 +1,98 @@
-    function prova1() {
-        let matriz = []
-        let vetor = []
-        leitura(matriz, vetor)
-        mediaNotas(matriz, vetor)
-        mediaPorSla(matriz, vetor)
-        console.log(matriz)
-        
+function exc2() {
+    let matriz = []
+    let vetor = []
+    dados(vetor)
+    criandoMatriz(matriz, vetor)
+    media(matriz, vetor)
+    menores_notas(matriz, vetor)
+    menorMédia(matriz)
+}
 
+
+function dados(vetor) {
+    for (let i = 0; i < 4; i++) {     
+        vetor[i] = prompt(`Digite o nome do carro`)
     }
 
-    function leitura(matriz, vetor) {
-        for(let i=0;i<4;i++){
-            matriz[i] = [] // cria um vetor na posição i de matriz
-            for(let j=0;j<5;j++){
-                matriz[i][j] = parseInt(Math.random() * 11)
+}
+
+function criandoMatriz(matriz, vetor) {
+    for (let i = 0; i < 4; i++) {
+        matriz[i] = []
+        alert(`Informe as notas dos carros:`)                 
+        for (let j = 0; j < 5; j++) {
+            matriz[i][j] = Number(prompt(`Informe a ${j + 1} nota do carro ${vetor[i]}:`))       //NOTAS RECEBIDAS
+        }
+    }
+    console.log(matriz)
+}
+
+
+function media(matriz, vetor) {
+    let media = []
+    let soma_notas
+    let qtd_notas
+    for (let i = 0; i < 4; i++) {                   
+        soma_notas = 0
+        qtd_notas = 0
+        for (let j = 0; j < 5; j++) {
+            soma_notas += matriz[i][j]                  //SOMA DAS NOTAS RECEBIDAS POR CADA CARRO
+            qtd_notas++
+        }
+
+        media[i] = soma_notas / qtd_notas
+
+        console.log(`Média das notas do ${vetor[i]} = ${media[i]}`)
+    }
+
+}
+
+function menores_notas(matriz, vetor) {
+    let menor_nota = 0
+    let nome_carro = 0
+
+    menor_nota = matriz[0][0]
+    for (let j = 0; j < 5; j++) {
+        for (let i = 0; i < 4; i++) {
+
+            if (menor_nota > matriz[i][j]) {
+                menor_nota = matriz[i][j]                                   
+                nome_carro = i
             }
+
         }
-        let listaCarros = ['Macan', '911', 'Cayenne', 'Panamera', 'Taycan', '718', 'Coupê' ]
-        for(let w=0;w<4;w++){
-            vetor[w] = [listaCarros[w]] // cria um vetor na posição i de matriz
-            console.log(vetor[w])
-            for(let z=0;z<1;z++){
-                vetor[w][z] = vetor[w][z]
-            }
+        console.log(`A menor nota da ${j + 1} avaliação é do carro ${vetor[nome_carro]},  nota = ${menor_nota}`)
+    }
+}
+
+function menorMédia(matriz) {
+    let media = []
+    let menor_media
+    let soma_avaliacao
+    let qtd_avaliados
+    let avaliacao = 0
+
+    for (let j = 0; j < 5; j++) {
+        menor_nota = 0
+        soma_avaliacao = 0
+        qtd_avaliados = 0
+
+        for (let i = 0; i < 4; i++) {
+            soma_avaliacao += matriz[i][j]     // SOMA DAS NOTAS DE 1 TIPO DE AVALIAÇÃO 
+            qtd_avaliados++
+
         }
-        
+        media[j] = soma_avaliacao / qtd_avaliados    // DIVISAO PELA QUANTIDADE DE CARROS AVALIADOS = MÉDIA DE CADA AVALIACAO
+
+    }
+    menor_media = media[0]
+
+    for (let j = 0; j < 5; j++) {
+        if (media[j] < menor_media) {
+            menor_media = media[j]              // CALCULO DA MENOR MÉDIA
+            avalicao = j
+        }
     }
 
-    function mediaNotas(matriz, vetor) {
-
-        let mediaNotasCarro = 0
-        for(let i=0;i<4;i++){
-            let media = (matriz[i][0] + matriz[i][1] + matriz[i][2] + matriz[i][3] + matriz[i][4]) / 5
-            mediaNotasCarro += media
-
-            let carro = `O carro ${vetor[i]} teve a media ${media}`
-            console.log(carro)
-        }
-    }
-
-    function mediaPorSla(matriz, vetor) {
-        for(let i=0;i<4;i++){ // 5 alunos
-            matriz[i] = []
-            for(let j=0;j<5;j++){ // 2 notas
-                carroNotas = matriz[j]
-                console.log(carroNotas)
-            }
-        }
-    }
-    prova1()
-
-
-    for(let j=0;j<5;j++){
-        let menorNota = 0
-        let menorNomeNota = ''
-        //notasCarros = matriz[j]
-        console.log(matriz[0][j])
-        console.log(matriz[1][j])
-        console.log(matriz[2][j])
-        console.log(matriz[3][j])
-        if(matriz[j] > 0) {
-            console.log('boa')
-        }
-    }
+    console.log(`A menor média foi da avaliação ${avaliacao + 1} e a média foi = ${menor_media} `)
+}
