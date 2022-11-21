@@ -1,4 +1,4 @@
-function exe3() {
+function prova2() {
     let vetor_pessoas = []
     let vetor_imoveis = []
     dados(vetor_pessoas, vetor_imoveis)
@@ -10,7 +10,7 @@ function exe3() {
 
 function dados(pessoas, imoveis) {
 
-    for (let i = 0; i < 10; i++) {    // CADASTRO PESSOAS
+    for (let i = 0; i < 10; i++) { 
 
         let objPessoas = {
             nome: prompt(`Informe o seu nome:`),
@@ -20,26 +20,24 @@ function dados(pessoas, imoveis) {
         }
         pessoas.push(objPessoas)
 
-        alert(`agora vamos cadastrar seu imóvel ${pessoas[i].nome}`)
-
         // CADASTRO IMOVEIS
 
         let objImoveis = {
-            codigo: Number(prompt(`Informe o código do imóvel:`)),
-            endereco: prompt(`Informe o endereço do imóvel:`),
-            tipo: prompt(`Informe o tipo do imóvel:`),
-            valor: Number(prompt(`Informe o valor do imóvel:`)),
-            cpf_dono: Number(prompt(`Informe o cpf do dono:`))
+            cdg: Number(prompt(`Informe o CODIGO do imóvel:`)),
+            endereco: prompt(`Informe o endereço:`),
+            tipo: prompt(`Informe o tipo :`),
+            valor: Number(prompt(`Informe o valor do imóvel R$ `)),
+            cpfDono: Number(prompt(`Informe o cpf :`))
         }
-        if (objImoveis.cpf_dono == pessoas[i].cpf) {         // SE CPF VÁLIDO
+        if (objImoveis.cpfDono == pessoas[i].cpf) {
             imoveis.push(objImoveis)
         }
         else {
-            alert(`Não é possivel cadastrar o imóvel, cpf inválido!!`)
+            alert(`CPF Não cadastrado!`)
         }
     }
 
-    console.log(pessoas)                        //IMPRIMIR DADOS
+    console.log(pessoas)
     console.log(imoveis)
 }
 
@@ -56,9 +54,9 @@ function rg(vetor_pessoas, vetor_imoveis) {
             rg = Number(prompt(`Digite seu RG:`))
             soma = 0
 
-            for (let i = 0; i < 10; i++) {                  //VERIFICAR SE RG E CPF ESTÃO CADASTRADOS E SOMAR NO TOTAL EM IMÓVEIS 
+            for (let i = 0; i < 10; i++) { 
                 if (rg == vetor_pessoas[i].rg) {
-                    if (vetor_pessoas[i].cpf == vetor_imoveis[i].cpf_dono) {
+                    if (vetor_pessoas[i].cpf == vetor_imoveis[i].cpfDono) {
                         soma += vetor_imoveis[i].valor
                     }
                 }
@@ -83,5 +81,5 @@ function imovelCaro(vetor_imoveis) {
             cpf = i
         }
     }
-    console.log(`O cpf da pessoa que possui o imóvel mais caro é : ${vetor_imoveis[cpf].cpf_dono}\nE o valor do imóvel é de: ${mais_caro}`)
+    console.log(`O cpf da pessoa que possui o imóvel mais caro é : ${vetor_imoveis[cpf].cpfDono}\nE o valor do imóvel é de: ${mais_caro}`)
 }
