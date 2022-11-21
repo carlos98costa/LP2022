@@ -1,48 +1,52 @@
 function exc4() {
     let matriz = []
-    let vetor = []
-    gerar4(matriz, vetor)
-    console.log(media4(matriz, vetor))
-    console.log(`A media da classe foi ${mediaClasse4(matriz)}`)
+    let nomes = []
+    leitura(matriz, nomes)
+    console.log(matriz)
+    console.log(nomes)
+    mediaAluno(matriz, nomes)
+
 }
 
-function gerar4(matriz, vetor){
-    for (let i=0; i<5; i++) {
-        vetor.push(prompt(`Informe o nome do aluno:`))
-        matriz[i] = []
-        for (let k=0; k<2; k++) {
-            matriz[i][k] = parseInt((Math.random()*10))
-        }
+function geraStringAleatoria() {
+    var nomeAleatorio = ''
+    var caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+    for (var i = 0; i < 6; i++) {
+        nomeAleatorio += caracteres.charAt(Math.floor(Math.random() * caracteres.length))
     }
+    return nomeAleatorio
 }
 
-function media4(matriz, vetor) {
-    let soma
-    for (let i=0; i<5; i++) {
-        soma = 0
-        for (let k=0; k<2; k++) {
-            soma += matriz[i][k]
+function leitura(matriz, nomes) {
+    for(let i=0;i<15;i++){
+        matriz[i] = [] // cria um vetor na posição i de matriz
+        for(let j=0;j<5;j++){
+            matriz[i][j] = parseInt(Math.random() * 11)
         }
-        console.log(`O aluno ${vetor[i]} teve a media ${soma/2}`)
-        if ((soma/2) >= 6) {
-            console.log(`O aluno ${vetor[i]} foi Aprovado!`)
-        }
-        else if((soma/2) >=3) {
-            console.log(`O aluno ${vetor[i]} ficou de Recuperação`)
-        }
-        else{
-            console.log(`O aluno ${vetor[i]} foi Reprovado!`)
-        }
-
     }
+    for(let w=0;w<15;w++){
+        nomes[w] = [] // cria um vetor na posição i de matriz
+        for(let z=0;z<1;z++){
+            nomes[w][z] = geraStringAleatoria()
+        }
+    }
+    
 }
 
-function mediaClasse4(matriz) {
-    let soma = 0
-    for (let i=0; i<5; i++) {
-        for (let k=0; k<2; k++) {
-            soma += matriz[i][k]
+function mediaAluno(matriz, nomes) {
+    let mediaClasse = 0
+    for(let i=0;i<15;i++){
+        let media = (matriz[i][0] + matriz[i][1] + matriz[i][2] + matriz[i][3] + matriz[i][4]) / 5
+        mediaClasse += media
+        if (media >=6) {
+            situacao = 'Aprovado'
+        }else if(media > 3 && media < 6) {
+            situacao = 'Exame'
+        }else {
+            situacao = 'Reprovado'
         }
+        let aluno = `O aluno ${nomes[i]} teve a media ${media}, portanto está ${situacao} por notas!`
+        console.log(aluno)
     }
-    return soma/10
+    console.log(`A media de notas da classe é ${(mediaClasse / 15).toFixed(2)}`)
 }

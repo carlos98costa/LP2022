@@ -1,28 +1,25 @@
-function exc1() {
+function exc1(){
     let matriz = []
-    gerar(matriz)
+    leitura(matriz)
     console.log(matriz)
-    checar(matriz)
-    console.log(checar(matriz))
+    console.log(`Qtde de elementos entre 12 e 20 ${contaIntervalo(matriz)}`)
 }
-
-function gerar(matriz) {
-    for (let i=0; i<3; i++) {
-        matriz[i] = []
-        for (let k=0; k<5; k++) {
-            matriz[i][k] = parseInt((Math.random()*30))
+function leitura(matriz){
+    for(let i=0;i<3;i++){
+        matriz[i] = [] // cria um vetor na posição i de matriz
+        for(let j=0;j<5;j++){
+            matriz[i][j] = parseInt(Math.random() * 30)
         }
     }
 }
-
-function checar(matriz) {
-    let count = 0
-    for (let i=0; i<3; i++) {
-        for (let k=0; k<5; k++) {
-            if (matriz[i][k] >= 15 && matriz[i][k] <= 20) {
-                count++
+function contaIntervalo(matriz){
+    let conta = 0
+    for(let i=0;i<3;i++){
+        for(let j=0;j<5;j++){
+            if (matriz[i][j] >= 15 && matriz[i][j] <= 20) {
+                conta++
             }
         }
     }
-    return count
+    return conta
 }

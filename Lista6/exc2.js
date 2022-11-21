@@ -1,46 +1,42 @@
 function exc2() {
     let matriz = []
-    gerar2(matriz)
-    console.log(checar2(matriz))
-    console.log(pares2(matriz))
+    leitura(matriz)
+    console.log(matriz)
+    console.log(`Qtde de elementos entre 15 e 20 é = ${contaIntervalo(matriz)}`)
+    contaPares(matriz)
 }
 
-function gerar2(matriz) {
-    for (let i=0; i<3; i++) {
-        matriz[i] = []
-        for (let k=0; k<4; k++) {
-            matriz[i][k] = parseInt((Math.random()*30))
+function leitura(matriz) {
+    for(let i=0;i<2;i++){
+        matriz[i] = [] // cria um vetor na posição i de matriz
+        for(let j=0;j<4;j++){
+            matriz[i][j] = parseInt(Math.random() * 30)
         }
     }
 }
 
-function checar2(matriz) {
-    let count1 = 0
-    let elementos = []
-    for (let i=0; i<2; i++) {
-        for (let k=0; k<4; k++) {
-            if (matriz[i][k] >= 12 && matriz[i][k] <= 20) {
-                count1++
-                elementos.push(matriz[i][k])
+function contaIntervalo(matriz){
+    let conta = 0
+    for(let i=0;i<2;i++){
+        for(let j=0;j<4;j++){
+            if (matriz[i][j] >= 12 && matriz[i][j] <= 20) {
+                conta++
             }
         }
     }
-    console.log(elementos)
-    return count1
+    return conta
 }
 
-function pares2(matriz) {
-    let countPar = 0
+function contaPares(matriz){
+    let contaPar = 0
     let somaPar = 0
-    for (let i=0; i<2; i++) {
-        for (let k=0; k<4; k++) {
-            if (matriz[i][k] % 2 == 0) {
-                somaPar = somaPar + matriz[i][k]
-                countPar++
-                
+    for(let i=0;i<2;i++){
+        for(let j=0;j<4;j++){
+            if (matriz[i][j] % 2 == 0) {
+                contaPar++
+                somaPar = somaPar + matriz[i][j]
             }
         }
     }
-    return (somaPar/countPar)
-
+    return console.log(`A media dos valores pares é = ${somaPar / contaPar}`)
 }
